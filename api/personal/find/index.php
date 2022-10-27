@@ -1,6 +1,6 @@
 <?php
 
-   //error_reporting(0);
+   error_reporting(0);
    header("Access-Control-Allow-Origin: *");
    $method = $_SERVER['REQUEST_METHOD'];
    $auth = $_SERVER['HTTP_AUTH_ITT'];
@@ -17,13 +17,13 @@
    if(!$result=mysqli_query($conex,$sql)) die();
 
    if($verify=mysqli_num_rows($result)<=0){
-	 $error=array();
-	$error[]=array(
+	 
+	$personal[]=array(
 	   'status'=>422,
 	   'message'=>"El archivo solicitado 'No existe'."
 	);
 
-	echo json_encode($error);
+	echo json_encode($personal);
 	}else{
 
    while($row=mysqli_fetch_array($result)){
